@@ -3,7 +3,6 @@ let monoC = document.getElementById("mono-c");
 let scaleInput = document.getElementById("scale-input");
 
 //manual inputs for <= 4
-
 let aMinis = {
   one: ["A"],
   two: [
@@ -39,7 +38,6 @@ let fourC = [
 ];
 
 //Scaling and Converting arrays to strings
-
 function scaleConcat(array, factor) {
   let scaled = [];
 
@@ -124,10 +122,6 @@ function trimC(arr, lWidth) {
   }
 }
 
-//Padding Functions
-//when height is not a multiple of 4, we take the closes multiple of 4 that is below selected height.
-//then padd the center or edges or array
-
 function padA(arr, padding, scale) {
   for (let i = 0; i < padding; i++) {
     //if pad is even
@@ -182,8 +176,6 @@ function getMinis(height) {
     : [aMinis.three, cMinis.three];
 }
 
-//Main Function for inputs
-
 function scaleLetters(height) {
   let scaledA, scaledC;
   let padding = height % 4;
@@ -222,11 +214,12 @@ function scaleLetters(height) {
   monoC.innerHTML = scaledC;
 }
 
-//basic html even listeners
-
 scaleInput.addEventListener("keyup", function (event) {
+  // Number 13 is the "Enter" key on the keyboard
   if (event.keyCode === 13) {
+    // Cancel the default action, if needed
     event.preventDefault();
+    // Trigger the button element with a click
     document.getElementById("myBtn").click();
   }
 });

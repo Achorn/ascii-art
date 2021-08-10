@@ -205,7 +205,7 @@ function scaleLetters(height) {
     scaledA = scaleConcat(scaledA, scale);
     trimA(scaledA, scale);
     scaledC = scaleConcat(scaledC, scale);
-    trimC(scaledC, scale);
+    // trimC(scaledC, scale);
 
     //add the aprop padding between the factors of 4 either 0-1
     scaledC = padJoinC(scaledC, padding);

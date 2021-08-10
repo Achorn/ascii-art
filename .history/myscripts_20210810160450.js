@@ -2,8 +2,6 @@ let monoA = document.getElementById("mono-a");
 let monoC = document.getElementById("mono-c");
 let scaleInput = document.getElementById("scale-input");
 
-//manual inputs for <= 4
-
 let aMinis = {
   one: ["A"],
   two: [
@@ -37,8 +35,6 @@ let fourC = [
   [" ", "C", "C", "C", " "],
   ["C", " ", " ", " ", " "],
 ];
-
-//Scaling and Converting arrays to strings
 
 function scaleConcat(array, factor) {
   let scaled = [];
@@ -92,9 +88,6 @@ function halfCToString(arr, padding) {
   }
   return string;
 }
-
-//Functions to smooth out characters to look less blocky
-
 function trimA(arr, lWidth) {
   for (i = 0; i < arr.length; i++) {
     let disp = lWidth - (i % lWidth) - 1;
@@ -123,12 +116,22 @@ function trimC(arr, lWidth) {
     arr[i] = newArr;
   }
 }
+function padA(arr, padding) {
+  // duplicate end of each value for each sub array
+  // for (let i = 0; i < padding; i++) {
+  //   arr.forEach((subArr) => {
+  //     subArr.push(subArr[subArr.length - 1]);
+  //   });
+  //   //add top layer with spaces till the end
+  //   let topArr = [];
+  //   for (let i = 0; i < arr[0].length - 1; i++) {
+  //     topArr.push(" ");
+  //   }
+  //   topArr.push("A");
+  //   arr.unshift(topArr);
+  // }
 
-//Padding Functions
-//when height is not a multiple of 4, we take the closes multiple of 4 that is below selected height.
-//then padd the center or edges or array
-
-function padA(arr, padding, scale) {
+  //duplicate bottom of array
   for (let i = 0; i < padding; i++) {
     //if pad is even
     if (i % 2 != 0) {
@@ -142,9 +145,6 @@ function padA(arr, padding, scale) {
       }
       topArr.push("A");
       arr.unshift(topArr);
-
-      //remove thick bottom line in center
-      arr[scale][arr[scale].length - 1] = " ";
     } else {
       // if pad is odd
       let newLine = [...arr[arr.length - 1]];
@@ -182,8 +182,6 @@ function getMinis(height) {
     : [aMinis.three, cMinis.three];
 }
 
-//Main Function for inputs
-
 function scaleLetters(height) {
   let scaledA, scaledC;
   let padding = height % 4;
@@ -209,7 +207,7 @@ function scaleLetters(height) {
 
     //add the aprop padding between the factors of 4 either 0-1
     scaledC = padJoinC(scaledC, padding);
-    padA(scaledA, padding, scale);
+    padA(scaledA, padding);
     scaledA = halfAToString(scaledA);
     // scaledC = arrToString(scaledC);
 
@@ -222,11 +220,12 @@ function scaleLetters(height) {
   monoC.innerHTML = scaledC;
 }
 
-//basic html even listeners
-
 scaleInput.addEventListener("keyup", function (event) {
+  // Number 13 is the "Enter" key on the keyboard
   if (event.keyCode === 13) {
+    // Cancel the default action, if needed
     event.preventDefault();
+    // Trigger the button element with a click
     document.getElementById("myBtn").click();
   }
 });
