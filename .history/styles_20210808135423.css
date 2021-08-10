@@ -1,0 +1,19 @@
+body {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  border: 2px solid grey;
+  height: 500px;
+  width: 400px;
+  text-align: center;
+}
+
+.ascii {
+  border-radius: 1px solid black;
+}

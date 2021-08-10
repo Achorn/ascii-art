@@ -1,0 +1,35 @@
+body {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  border: 2px solid grey;
+  height: 500px;
+  /* width: 400px; */
+  text-align: center;
+}
+
+#ascii-container {
+  display: flex;
+}
+
+#a-container {
+  background-color: pink;
+}
+#c-container {
+  background-color: pink;
+}
+#mono-a {
+  /* font-size: 25.5vw; */
+  padding: 0px 50px 0px 50px;
+  white-space: pre;
+}
+#mono-c {
+  padding: 0px 50px 0px 50px;
+  white-space: pre;
+}
