@@ -64,7 +64,7 @@ function arrToString(arr) {
   return string;
 }
 
-// The 'A' character is symmetrical so array contains 1/2 of character
+// The 'A' character is symmetrical so the array only contains half of the character.
 // this saves space and time.
 function halfAToString(arr) {
   let string = "";
@@ -77,7 +77,7 @@ function halfAToString(arr) {
   return string;
 }
 
-// The 'C' character is symmetrical so array contains 1/2 of the character.
+// The 'C' character is symmetrical so the array only contains half of the character.
 // this saves space and time.
 function halfCToString(arr, padding) {
   let string = "";
@@ -163,6 +163,7 @@ function padJoinC(arr, padding) {
   let pad = [];
   for (let i = 0; i < padding; i++) {
     pad.push(arr[arr.length - 1]);
+
     for (let i = 0; i < arr.length; i++) {
       arr[i].splice(arr[i].length / 2, 0, arr[i][arr.length / 2]);
     }
@@ -190,7 +191,10 @@ function scaleLetters(height) {
     [scaledA, scaledC] = getMinis(height);
     scaledA = arrToString(scaledA);
     scaledC = arrToString(scaledC);
-  } else {
+  }
+
+  //check to see if scale is divisible by 4
+  else {
     console.log("height: ", height, " padding: ", padding, " scale: ", scale);
 
     //scale letters
@@ -201,13 +205,14 @@ function scaleLetters(height) {
     scaledC = scaleConcat(scaledC, scale);
     trimC(scaledC, scale);
 
-    //add the appropriate padding between the factors of 4 either 0-3
+    //add the aprop padding between the factors of 4 either 0-1
     scaledC = padJoinC(scaledC, padding);
     padA(scaledA, padding, scale);
     scaledA = halfAToString(scaledA);
-  }
+    // scaledC = arrToString(scaledC);
 
-  //dinamically scale font size
+    // return newly scaled
+  }
   monoA.style.fontSize = `${60 / scale + 1}px`;
   monoC.style.fontSize = `${60 / scale + 1}px`;
 
@@ -215,7 +220,8 @@ function scaleLetters(height) {
   monoC.innerHTML = scaledC;
 }
 
-//basic html event listeners
+//basic html even listeners
+
 scaleInput.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     event.preventDefault();

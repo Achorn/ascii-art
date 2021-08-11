@@ -64,7 +64,7 @@ function arrToString(arr) {
   return string;
 }
 
-// The 'A' character is symmetrical so array contains 1/2 of character
+// The 'A' character is symmetrical so the array only contains half of the character.
 // this saves space and time.
 function halfAToString(arr) {
   let string = "";
@@ -77,7 +77,7 @@ function halfAToString(arr) {
   return string;
 }
 
-// The 'C' character is symmetrical so array contains 1/2 of the character.
+// The 'C' character is symmetrical so the array only contains half of the character.
 // this saves space and time.
 function halfCToString(arr, padding) {
   let string = "";
