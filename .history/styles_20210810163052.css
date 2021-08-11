@@ -19,18 +19,17 @@ form {
 }
 
 #a-container {
-  /* background-color: pink; */
+  background-color: pink;
 }
 #c-container {
-  /* background-color: pink; */
+  background-color: pink;
 }
 #mono-a {
-  font-size: 100px;
+  /* font-size: 25.5vw; */
   padding: 0px 50px 0px 50px;
   white-space: pre;
 }
 #mono-c {
-  font-size: 100px;
   padding: 0px 50px 0px 50px;
   white-space: pre;
 }

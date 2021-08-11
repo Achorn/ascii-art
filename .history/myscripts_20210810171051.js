@@ -203,7 +203,7 @@ function scaleLetters(height) {
     scaledA = fourA.map((arr) => arr.slice());
     scaledC = fourC.map((arr) => arr.slice());
     scaledA = scaleConcat(scaledA, scale);
-    trimA(scaledA, scale);
+    // trimA(scaledA, scale);
     scaledC = scaleConcat(scaledC, scale);
     trimC(scaledC, scale);
 

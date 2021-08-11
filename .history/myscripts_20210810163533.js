@@ -215,8 +215,8 @@ function scaleLetters(height) {
 
     // return newly scaled
   }
-  monoA.style.fontSize = `${60 / scale + 1}px`;
-  monoC.style.fontSize = `${60 / scale + 1}px`;
+  monoA.style.fontSize = `${60 / height}px`;
+  monoC.style.fontSize = `${60 / height}px`;
 
   monoA.innerHTML = scaledA;
   monoC.innerHTML = scaledC;
