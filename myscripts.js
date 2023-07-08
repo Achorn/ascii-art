@@ -79,8 +79,6 @@ function halfAToString(arr) {
 // The 'C' character is symmetrical horizontally so array contains 1/2 of the character.
 // this saves space and time.
 function halfCToString(arr, padding) {
-  console.log("arr length: ", arr.length);
-  console.log("padding length: ", padding.length);
   let string = "";
   // top half
   for (let i = 0; i < arr.length; i++) {
@@ -205,7 +203,6 @@ function scaleLetters(height) {
     trimC(scaledC, scale);
 
     //add the appropriate padding between the factors of 4 either 0-3
-    console.log(scaledC[scaledC.length - 1]);
     scaledC = padJoinC(scaledC, padding);
     padA(scaledA, padding, scale);
     scaledA = halfAToString(scaledA);
