@@ -8,22 +8,29 @@ body {
 }
 
 #ascii-container {
+  padding-top: 20px;
+  /* background-color: black; */
+  width: 100vw;
   display: flex;
+  justify-content: center;
 }
 
 #a-container {
-  /* background-color: pink; */
 }
 #c-container {
-  /* background-color: pink; */
 }
 #mono-a {
-  font-size: 100px;
-  padding: 0px 50px 0px 50px;
+  margin: 0%;
+  font-size: 40vh;
+  /* padding: 0px 50px 0px 50px; */
+  font-family: courier, courier new, serif;
+  line-height: 1;
   white-space: pre;
 }
 #mono-c {
-  font-size: 100px;
-  padding: 0px 50px 0px 50px;
+  margin: 0%;
+  line-height: 1;
+  font-size: 40vh;
+  /* padding: 0px 50px 0px 50px; */
   white-space: pre;
 }
