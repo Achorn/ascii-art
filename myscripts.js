@@ -39,7 +39,6 @@ let fourC = [
 ];
 
 //Scaling and Converting arrays to strings
-
 function scaleConcat(array, factor) {
   let scaled = [];
 
@@ -64,7 +63,7 @@ function arrToString(arr) {
   return string;
 }
 
-// The 'A' character is symmetrical so array contains 1/2 of character
+// The 'A' character is symmetrical vertically so array contains 1/2 of character
 // this saves space and time.
 function halfAToString(arr) {
   let string = "";
@@ -77,20 +76,25 @@ function halfAToString(arr) {
   return string;
 }
 
-// The 'C' character is symmetrical so array contains 1/2 of the character.
+// The 'C' character is symmetrical horizontally so array contains 1/2 of the character.
 // this saves space and time.
 function halfCToString(arr, padding) {
+  console.log("arr length: ", arr.length);
+  console.log("padding length: ", padding.length);
   let string = "";
+  // top half
   for (let i = 0; i < arr.length; i++) {
-    string += arr[i].join("");
+    string += arr[i].join("").substring(0, arr[0].length);
     string += "<br>";
   }
+  // Mid
   for (let i = 0; i < padding.length; i++) {
-    string += padding[i].join("");
+    string += padding[i].join("").substring(0, arr[0].length);
     string += "<br>";
   }
+  // bottom half
   for (let i = arr.length - 1; i >= 0; i--) {
-    string += arr[i].join("");
+    string += arr[i].join("").substring(0, arr[0].length);
     string += "<br>";
   }
   return string;
@@ -184,6 +188,7 @@ function getMinis(height) {
 function scaleLetters(height) {
   let scaledA, scaledC;
   let padding = height % 4;
+
   let scale = (height - padding) / 4;
 
   if (height < 4) {
@@ -191,8 +196,6 @@ function scaleLetters(height) {
     scaledA = arrToString(scaledA);
     scaledC = arrToString(scaledC);
   } else {
-    console.log("height: ", height, " padding: ", padding, " scale: ", scale);
-
     //scale letters
     scaledA = fourA.map((arr) => arr.slice());
     scaledC = fourC.map((arr) => arr.slice());
@@ -202,14 +205,15 @@ function scaleLetters(height) {
     trimC(scaledC, scale);
 
     //add the appropriate padding between the factors of 4 either 0-3
+    console.log(scaledC[scaledC.length - 1]);
     scaledC = padJoinC(scaledC, padding);
     padA(scaledA, padding, scale);
     scaledA = halfAToString(scaledA);
   }
 
-  //dinamically scale font size
-  monoA.style.fontSize = `${60 / scale + 1}px`;
-  monoC.style.fontSize = `${60 / scale + 1}px`;
+  //dynamically scale font size
+  monoA.style.fontSize = `${40 / height}vh`;
+  monoC.style.fontSize = `${40 / height}vh`;
 
   monoA.innerHTML = scaledA;
   monoC.innerHTML = scaledC;
