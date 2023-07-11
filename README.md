@@ -3,9 +3,9 @@
 ## Table of contents
 
 - [Overview](#overview)
+  - [Links](#links)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -15,6 +15,10 @@
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
+
+### Links
+
+- Live Site URL: [https://achorn.github.io/ascii-art/](https://achorn.github.io/ascii-art/)
 
 ### The challenge
 
@@ -55,10 +59,6 @@ Screenshots of different heights
 ![Finished web design](./images/100.png)
 ![Finished web design](./images/500.png)
 
-### Links
-
-- Live Site URL: [https://achorn.github.io/ascii-art/](https://achorn.github.io/ascii-art/)
-
 ## My process
 
 ### Built with
@@ -69,11 +69,14 @@ Screenshots of different heights
 - Web-first workflow
 - Javascript
 
-- No use of frameworks like react, as if felt overpowered and bulky for a challenge like this
+- No use of frameworks like react, as it felt overpowered and bulky for a challenge like this
 
 ### What I learned
 
-Not much learning anything I didn't know, but was able to impliment intuitive strategies to scale the characters.
+Mostly learning about ascii art and all the styling that goes into making uniform art with letters.
+one of the challenges was stripping the font of all its hidding padding and margins in order to not let 0.2 px of padding create a horrid problem when you start scaling to 4,000x4,000 characters.
+
+the letters A and C are symetrical so you can start with half of the letter, do all the computation on one side, then mirror the other half after scaling and smoothing.
 
 This trim function takes blocky ascii art that was scaled from a character of a height of 4 then smooths out the sides.
 
